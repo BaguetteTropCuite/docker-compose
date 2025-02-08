@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy
+    container_name: wg-easy
+    environment:
+      - LANG=fr
+      - WG_HOST=xx.xxx.xx.xxx
+      - PASSWORD_HASH='$2a$12$RAX4QY8hRSjq3kwbXvAt1uBThu9DnjcSUJk7d9UedRecpES.ruPW.'   ==> docker run --rm -it ghcr.io/wg-easy/wg-easy wgpw 'YOUR_PASSWORD' <= Generate bcrypt password hashes 
+      - PORT=51821
+      - WG_PORT=51820
+    volumes:
+      - wg-easy-config:/etc/wireguard
+    ports:
+      - "51820:51820/udp"
+      - "51821:51821/tcp"
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      net.ipv4.conf.all.src_valid_mark: "1"
+      net.ipv4.ip_forward: "1"
+    restart: unless-stopped
+
+volumes:
+  wg-easy-config:
