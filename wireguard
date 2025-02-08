@@ -10,7 +10,7 @@ services:
     environment:
       - LANG=fr
       - WG_HOST=xx.xxx.xx.xxx
-      - PASSWORD_HASH='$$2a$$12$$RAX4QY8hRSjq3kwbXvAt1uBThu9DnjcSUJk7d9UedRecpES.ruPW.'
+      - PASSWORD_HASH=$$2a$$12$$RAX4QY8hRSjq3kwbXvAt1uBThu9DnjcSUJk7d9UedRecpES.ruPW.
       - PORT=51821
       - WG_PORT=51820
     volumes:
