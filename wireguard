@@ -1,3 +1,6 @@
+==> docker run --rm -it ghcr.io/wg-easy/wg-easy wgpw 'YOUR_PASSWORD' <= Generate bcrypt password hashes
+==> Please note: don't wrap the generated hash password in single quotes when you use docker-compose.yml. Instead, replace each $ symbol with two $$
+
 version: "3.8"
 
 services:
@@ -7,7 +10,7 @@ services:
     environment:
       - LANG=fr
       - WG_HOST=xx.xxx.xx.xxx
-      - PASSWORD_HASH='$2a$12$RAX4QY8hRSjq3kwbXvAt1uBThu9DnjcSUJk7d9UedRecpES.ruPW.'   ==> docker run --rm -it ghcr.io/wg-easy/wg-easy wgpw 'YOUR_PASSWORD' <= Generate bcrypt password hashes 
+      - PASSWORD_HASH='$$2a$$12$$RAX4QY8hRSjq3kwbXvAt1uBThu9DnjcSUJk7d9UedRecpES.ruPW.'
       - PORT=51821
       - WG_PORT=51820
     volumes:
