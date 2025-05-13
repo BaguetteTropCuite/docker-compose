@@ -32,7 +32,7 @@ services:
       MYSQL_DATABASE: guacamole_db
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      GUACAMOLE_HOME=/etc/guacamole
+      GUACAMOLE_HOME: /etc/guacamole
     depends_on:
       - mysql
       - guacd
@@ -40,7 +40,7 @@ services:
       - "8080:8080"
     networks:
       - guacamole-net
-    volumes :
+    volumes:
       - guacamole_extensions:/etc/guacamole/extensions
 
 volumes:
