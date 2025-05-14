@@ -1,0 +1,29 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    restart: unless-stopped
+    container_name: prom-sup
+
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prom_data:/prometheus
+    networks:
+      - sup-net
+    ports:
+      - 9090:9090
+
+
+
+networks:
+  sup-net:
+    driver: bridge
+
+volumes:
+  prom_data:
+
+
+
+    
