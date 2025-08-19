@@ -19,11 +19,13 @@ Pour configurer une 2FA avec le TOTP, j'ai mappé un volume dans le conteneur gu
 
 => Pour télécharger des extensions : ex 1.6.0 : https://guacamole.apache.org/releases/1.6.0/      /!\ Attention, la version du conteneur doit parfaitement match la version de l'extension.
 
-=> wget "https://apache.org/dyn/closer.lua/guacamole/1.6.0/binary/guacamole-auth-totp-1.6.0.tar.gz?action=download" -O guacamole-auth-totp-1.6.0.tar.gz      => Télécharger l'archive avec le .jar
+Télécharger l'archive avec le .jar
+=> wget "https://apache.org/dyn/closer.lua/guacamole/1.6.0/binary/guacamole-auth-totp-1.6.0.tar.gz?action=download" -O guacamole-auth-totp-1.6.0.tar.gz
 
 => tar -xzf guacamole-auth-totp-1.6.0.tar.gz
 
-=> mv guacamole-auth-totp-1.6.0/guacamole-auth-totp-1.6.0.jar /var/lib/docker/volumes/guacamole_guacamole_extensions/_data/                                  => Déplacer le .jar dans le volume du conteneur guacamole pour la persistance.
+Déplacer le .jar dans le volume du conteneur guacamole pour la persistance.
+=> mv guacamole-auth-totp-1.6.0/guacamole-auth-totp-1.6.0.jar /var/lib/docker/volumes/guacamole_guacamole_extensions/_data/
 
 => docker restart guacamole
 
