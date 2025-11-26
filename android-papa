@@ -1,0 +1,32 @@
+# => https://github.com/budtmo/docker-android
+
+services:
+  android-emulator:
+    # Spécifier l'image à utiliser
+    image: budtmo/docker-android:emulator_11.0
+    container_name: android-emulator-container
+    
+    restart: always
+
+    environment:
+      # Modèle d'appareil à émuler (par exemple, Samsung Galaxy S10, Nexus, etc.)
+      - EMULATOR_DEVICE=Samsung Galaxy S10
+      # Activer l'interface web VNC (requis pour l'accès graphique)
+      - WEB_VNC=true
+      # Activer l'accélération matérielle (nécessite /dev/kvm sur l'hôte)
+      - EMULATOR_ACCELERATION=true
+     - TZ=Europe/Paris
+
+    ports:
+      - "6080:6080" # Interface Web (noVNC)
+      - "5555:5555" # Port ADB (Android Debug Bridge)
+
+    volumes:
+      - android_data:/home/androidusr
+      
+    devices:
+      - /dev/kvm # Pour l'accélération matérielle KVM
+
+volumes:
+  android_data:
+    driver: local
